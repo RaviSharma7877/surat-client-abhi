@@ -1,4 +1,10 @@
-import { S3Client, PutObjectCommand, DeleteObjectCommand, GetObjectCommand } from "@aws-sdk/client-s3";
+import {
+  S3Client,
+  PutObjectCommand,
+  DeleteObjectCommand,
+  GetObjectCommand,
+} from "@aws-sdk/client-s3";
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 
 const s3 = new S3Client({
   region: process.env.AWS_REGION!,
@@ -10,24 +16,21 @@ const s3 = new S3Client({
 
 const CATALOG_KEY = "catalog/products.json";
 
-export async function uploadToS3(
-  buffer: Buffer,
+export async function getPresignedUploadUrl(
   filename: string,
   contentType: string
-): Promise<string> {
+): Promise<{ uploadUrl: string; publicUrl: string }> {
   const bucket = process.env.S3_BUCKET_NAME!;
   const key = `products/${filename}`;
 
-  await s3.send(
-    new PutObjectCommand({
-      Bucket: bucket,
-      Key: key,
-      Body: buffer,
-      ContentType: contentType,
-    })
+  const uploadUrl = await getSignedUrl(
+    s3,
+    new PutObjectCommand({ Bucket: bucket, Key: key, ContentType: contentType }),
+    { expiresIn: 300 } // 5 minutes
   );
 
-  return `https://${bucket}.s3.${process.env.AWS_REGION}.amazonaws.com/${key}`;
+  const publicUrl = `https://${bucket}.s3.${process.env.AWS_REGION}.amazonaws.com/${key}`;
+  return { uploadUrl, publicUrl };
 }
 
 export async function deleteFromS3(imageUrl: string): Promise<void> {
@@ -39,10 +42,12 @@ export async function deleteFromS3(imageUrl: string): Promise<void> {
 export async function readCatalogJson(): Promise<string | null> {
   const bucket = process.env.S3_BUCKET_NAME!;
   try {
-    const res = await s3.send(new GetObjectCommand({ Bucket: bucket, Key: CATALOG_KEY }));
+    const res = await s3.send(
+      new GetObjectCommand({ Bucket: bucket, Key: CATALOG_KEY })
+    );
     return (await res.Body?.transformToString()) ?? null;
   } catch {
-    return null; // doesn't exist yet
+    return null;
   }
 }
 
