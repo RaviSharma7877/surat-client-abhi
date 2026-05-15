@@ -1,18 +1,16 @@
-import { readFile, writeFile } from "fs/promises";
-import path from "path";
+import { readCatalogJson, writeCatalogJson } from "./s3";
 import type { Product } from "./types";
-
-const productsPath = path.join(process.cwd(), "data", "products.json");
 
 export async function getProducts(): Promise<Product[]> {
   try {
-    const raw = await readFile(productsPath, "utf-8");
-    return JSON.parse(raw) as Product[];
+    const json = await readCatalogJson();
+    if (!json) return [];
+    return JSON.parse(json) as Product[];
   } catch {
     return [];
   }
 }
 
 export async function saveProducts(products: Product[]): Promise<void> {
-  await writeFile(productsPath, JSON.stringify(products, null, 2), "utf-8");
+  await writeCatalogJson(JSON.stringify(products));
 }
