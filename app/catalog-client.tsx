@@ -1,16 +1,30 @@
 "use client";
 
+import useSWR from "swr";
 import { ProductCard } from "@/components/catalog/ProductCard";
 import { InquiryTray } from "@/components/catalog/InquiryTray";
 import type { Product } from "@/lib/types";
 
-const PRIORITY_COUNT = 6; // first N images load eagerly (above the fold)
+const PRIORITY_COUNT = 6;
+
+const fetcher = (url: string) => fetch(url).then((r) => r.json()) as Promise<Product[]>;
 
 interface CatalogClientProps {
   initialProducts: Product[];
 }
 
 export function CatalogClient({ initialProducts }: CatalogClientProps) {
+  const { data: products = initialProducts } = useSWR<Product[]>(
+    "/api/products",
+    fetcher,
+    {
+      fallbackData: initialProducts,
+      refreshInterval: 5000,      // poll every 5 s
+      revalidateOnFocus: true,    // refresh when user comes back to the tab
+      dedupingInterval: 3000,
+    }
+  );
+
   return (
     <div className="bg-background text-on-background min-h-screen">
       <link
@@ -28,7 +42,7 @@ export function CatalogClient({ initialProducts }: CatalogClientProps) {
         </span>
       </header>
 
-      {initialProducts.length === 0 ? (
+      {products.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-32 text-on-surface-variant">
           <span className="material-symbols-outlined text-5xl text-outline-variant">inventory_2</span>
           <p className="text-body-lg mt-3">No products yet.</p>
@@ -36,7 +50,7 @@ export function CatalogClient({ initialProducts }: CatalogClientProps) {
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 p-4">
-          {initialProducts.map((product, i) => (
+          {products.map((product, i) => (
             <ProductCard
               key={product.id}
               product={product}
