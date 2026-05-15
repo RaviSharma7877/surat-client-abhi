@@ -5,7 +5,8 @@
       "Bash(mkdir -p \"c:/Users/sraa7/Desktop/catalog-app/app/api/whatsapp-contacts/[id]\")",
       "Bash(npx tsc *)",
       "Bash(npm install *)",
-      "Bash(node -e \"require\\('@aws-sdk/client-s3'\\)\")"
+      "Bash(node -e \"require\\('@aws-sdk/client-s3'\\)\")",
+      "Bash(del \"c:\\\\Users\\\\sraa7\\\\Desktop\\\\catalog-app\\\\components\\\\admin\\\\ProductFormDialog.tsx\")"
     ]
   }
 }
