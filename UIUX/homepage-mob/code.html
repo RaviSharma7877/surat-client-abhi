@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ShopFlow - Catalog</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Sora:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#3d4756",
+                    "on-error-container": "#93000a",
+                    "on-background": "#191c1d",
+                    "tertiary-container": "#6063ee",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#f3f4f5",
+                    "outline-variant": "#bdc9c5",
+                    "surface-container-high": "#e7e8e9",
+                    "inverse-primary": "#72d8c8",
+                    "surface-variant": "#e1e3e4",
+                    "inverse-on-surface": "#f0f1f2",
+                    "surface-dim": "#d9dadb",
+                    "surface-container": "#edeeef",
+                    "on-surface-variant": "#3d4946",
+                    "secondary-fixed": "#d9e3f6",
+                    "background": "#f8f9fa",
+                    "surface": "#f8f9fa",
+                    "on-primary-fixed-variant": "#005047",
+                    "inverse-surface": "#2e3132",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-primary-container": "#f4fffb",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed-dim": "#c0c1ff",
+                    "tertiary-fixed": "#e1e0ff",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-secondary-container": "#596373",
+                    "on-primary-fixed": "#00201c",
+                    "on-tertiary-container": "#fffbff",
+                    "on-secondary-fixed": "#121c2a",
+                    "secondary": "#555f6f",
+                    "surface-bright": "#f8f9fa",
+                    "primary-container": "#008376",
+                    "on-surface": "#191c1d",
+                    "secondary-container": "#d6e0f3",
+                    "primary-fixed": "#8ff4e3",
+                    "secondary-fixed-dim": "#bdc7d9",
+                    "on-tertiary-fixed-variant": "#2f2ebe",
+                    "on-primary": "#ffffff",
+                    "outline": "#6d7a77",
+                    "primary-fixed-dim": "#72d8c8",
+                    "primary": "#00685d",
+                    "error": "#ba1a1a",
+                    "tertiary": "#4648d4",
+                    "surface-tint": "#006b5f",
+                    "on-tertiary-fixed": "#07006c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "24px",
+                    "gutter": "16px",
+                    "base": "8px",
+                    "section-gap": "48px",
+                    "container-margin-desktop": "40px",
+                    "stack-sm": "4px",
+                    "stack-md": "12px",
+                    "container-margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Sora"],
+                    "headline-lg": ["Sora"],
+                    "body-md": ["Inter"],
+                    "headline-xl": ["Sora"],
+                    "headline-lg-mobile": ["Sora"],
+                    "body-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-xl": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "14px", "fontWeight": "500"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        /* Safe area utilities for modern mobile browsers */
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+        .pt-safe { padding-top: env(safe-area-inset-top); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md antialiased pb-[140px] md:pb-[100px]">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full z-40 flex justify-between items-center px-container-mobile md:px-container-desktop h-16 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30">
+<button aria-label="Menu" class="text-primary hover:bg-primary-container/10 transition-colors p-2 rounded-full">
+<span class="material-symbols-outlined text-[24px]">menu</span>
+</button>
+<h1 class="text-headline-md font-headline-md font-bold tracking-tight text-primary">ShopFlow</h1>
+<button aria-label="User Profile" class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant/30">
+<img alt="Admin User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMJHolPajXtQw8MJAKg4rW_vLMPUdRlqxc1GtjnRMlhUAtzRYZ0Djwe-rGCw7qDdaGz9UXVtJmYfsLUiS5F09_x58NlcFfzJuPOHb3EEFHvqrZX-mB1g3-mdCMw4HK6qLbHVGR1Vb1X5OOk78Wq0A0_wzC4CmQ7m4rWw1W1UoZjpZml8jdd6tmlVnQm9Lt4fC-H44d6pq7eQAGegBY6JOz81vV5ZU6cuHOCS4EHpUBhOocySnSDfzDcUpXYarU6lP69Z3eiNTsXRH9"/>
+</button>
+</header>
+<!-- Main Content: Image Feed -->
+<main class="w-full max-w-[1280px] mx-auto px-container-mobile md:px-container-desktop py-stack-lg">
+<div class="flex flex-col gap-stack-lg md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-gutter">
+<!-- Product Image Card 1 -->
+<div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-surface-container-low group cursor-pointer">
+<img alt="Product Image" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A minimalist, highly stylized product photograph of a sleek, matte white ceramic vase against a soft, light beige background. The lighting is high-key and diffused, creating a serene, modern aesthetic with no harsh shadows. The composition focuses entirely on the elegant curves of the object, reflecting a premium, lightweight design language." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj4Sh5OmHeRYM0SlDhvpqMViRAuspiCf_Tco7S8N1gq-Z10YAa2C9xkSawzKNdf783uIQyepyILxfSuLPba7dpVBbnPX-QrwiCClTyOYDJHdWZZBxfPBnNkcJKBTCy3DkBHGsbptGVIfxnWe4B9HRlIY7CmshrehzLMEDmTK1ZndJ0Wi4ZkzY5Fiui8vlbjuIzqQ4SlXAnkeOqDwDgG7hwpxhOM_Ae39xgjFx32OeKWb4gQbrCmw2kZ8NijnsFhKDA6vahSnK2PFQe"/>
+<!-- Select Icon -->
+<button class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-surface/80 backdrop-blur-md rounded-full shadow-sm text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">radio_button_unchecked</span>
+</button>
+</div>
+<!-- Product Image Card 2 (Selected State) -->
+<div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-surface-container-low group cursor-pointer border-2 border-primary">
+<img alt="Product Image" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A premium, top-down product shot of minimalist wireless headphones resting on a clean, light grey surface. The lighting is soft and studio-quality, emphasizing the smooth textures and modern curves of the technology. The overall palette is neutral with subtle metallic accents, fitting a high-end, uncluttered storefront design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSL09lDTn1mkv5M1unOe2QUM_AVzf1yZ0r48XDiXQnt4HGOWqInW8AN0rQsFJ7VCUxZO2B7Ix4rHnxg8Xt0r0C0GN7R12wlA35sgbc7WXVe8o-bp7ZBK0oK_6ZuiJcYGUAWsk4rxzDZWnnsqB5zrTmfagAWzFRuBjypdicC2J7xrTq-mtL6AjvL6TLBsDQ4sLUs3ydmfSum3ckvyYqBIHXFaS5_vMiEE1Y1oxj340ZVbm0Q7G2rp3Zj8bN7PjHmBmQdikxY9Ll9jlg"/>
+<!-- Select Icon Active -->
+<button class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-primary text-on-primary rounded-full shadow-sm transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</button>
+</div>
+<!-- Product Image Card 3 -->
+<div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-surface-container-low group cursor-pointer">
+<img alt="Product Image" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A clean, contemporary product photograph featuring a simple, modern smartwatch with a light-colored band resting on an airy, white background. The image is bathed in bright, natural-looking light that creates a feeling of lightness and approachability. The minimalist presentation perfectly aligns with a modern digital commerce aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5xuglmtGNM_LqxYjCQTC7TxVsl-79EN5lSiXGb72k46m3mu7keaN3ZFog84RXH6DEYKmIP3ZG2R866Laq1CTdALGKQ6q-JTNJsJFY7Tw1afwcZylgf5E-A-EHiVgZ8UdHy3PCRfhcwcUibOf07KhUNA6QnHRbFhe4ZhPY-tBY6MVe4UzWTxftGq28zXPwGp4QaroIjZN-NoB9y1WQZCo242FQR3W-uKNLbs64woQ62T5ijrz0RwNaV8Crq8F91dK4chHCppefzt9W"/>
+<button class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-surface/80 backdrop-blur-md rounded-full shadow-sm text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">radio_button_unchecked</span>
+</button>
+</div>
+<!-- Product Image Card 4 -->
+<div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-surface-container-low group cursor-pointer hidden md:block">
+<img alt="Product Image" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A striking, high-contrast product image of a single vibrant red sneaker floating slightly above a pristine white studio backdrop. The lighting is crisp and even, removing heavy shadows to maintain an airy feel. The intense color pop against the minimalist environment creates a premium, attention-grabbing visual for a high-end catalog." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_Fa_ee2QrunavRI8Q3DrYK2GasRDoXhhSiWH042CAGhP2FPUqTAMJDYj5Q8vVOB-VM5Fgu8sBcUxfjDZfJcvMBMn1HZEIysIcMwFh7yFfl31nzDm9wZrpzWdT-H61xAJ-ZldAjEXhDi9rGUNiT1c_vxn_laZyA5PatPATId6nG2wLtyy0U2K1Z9OF4PbHfLhBpfsG6Kuk9VQxe0d5U526-BRlnpymBOUKLRzZttb-WPgoKp-wbe765XY22iwsw2VNX1pmDXBykOGX"/>
+<button class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-surface/80 backdrop-blur-md rounded-full shadow-sm text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">radio_button_unchecked</span>
+</button>
+</div>
+</div>
+<!-- View More Button -->
+<div class="w-full flex justify-center mt-section-gap">
+<button class="px-8 py-3 rounded-full border border-outline-variant text-label-md font-label-md text-primary hover:bg-surface-container-high transition-colors">
+                View More
+            </button>
+</div>
+</main>
+<!-- Selection Tray (Inquiry Basket) -->
+<div class="fixed bottom-[88px] md:bottom-[24px] left-0 w-full z-40 px-container-mobile flex justify-center pointer-events-none">
+<div class="w-full max-w-md bg-surface/90 backdrop-blur-xl border border-outline-variant/30 shadow-[0px_10px_30px_rgba(0,0,0,0.05)] rounded-full p-2 flex items-center justify-between pointer-events-auto">
+<div class="flex items-center gap-2 pl-4">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-label-md text-label-md">
+                    1
+                </div>
+<span class="text-label-md font-label-md text-on-surface">Selected</span>
+</div>
+<button class="h-12 px-6 bg-primary text-on-primary rounded-full flex items-center gap-2 hover:bg-surface-tint transition-colors">
+<span class="text-label-md font-label-md">Review Inquiry</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-safe pt-2 bg-surface/80 backdrop-blur-xl border-t border-outline-variant/20 shadow-sm md:hidden h-[72px]">
+<!-- Home (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all w-16">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="text-label-sm font-label-sm">Home</span>
+</button>
+<!-- Catalog (Active) -->
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-5 py-1.5 opacity-80 scale-95 transition-all w-20">
+<span class="material-symbols-outlined mb-0.5" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span class="text-label-sm font-label-sm font-bold">Catalog</span>
+</button>
+<!-- Inquiry (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all w-16">
+<span class="material-symbols-outlined mb-1">shopping_basket</span>
+<span class="text-label-sm font-label-sm">Inquiry</span>
+</button>
+<!-- Admin (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all w-16">
+<span class="material-symbols-outlined mb-1">dashboard</span>
+<span class="text-label-sm font-label-sm">Admin</span>
+</button>
+</nav>
+</body></html>

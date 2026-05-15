@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Review Selection - ShopFlow</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#f8f9fa",
+                        "outline-variant": "#bdc9c5",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e7e8e9",
+                        "primary-fixed": "#8ff4e3",
+                        "surface-tint": "#006b5f",
+                        "secondary-fixed-dim": "#bdc7d9",
+                        "outline": "#6d7a77",
+                        "on-tertiary-fixed-variant": "#2f2ebe",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#d6e0f3",
+                        "secondary": "#555f6f",
+                        "tertiary": "#4648d4",
+                        "tertiary-fixed-dim": "#c0c1ff",
+                        "surface-variant": "#e1e3e4",
+                        "surface-dim": "#d9dadb",
+                        "on-background": "#191c1d",
+                        "on-surface-variant": "#3d4946",
+                        "primary-fixed-dim": "#72d8c8",
+                        "surface-bright": "#f8f9fa",
+                        "primary-container": "#008376",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#07006c",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#596373",
+                        "primary": "#00685d",
+                        "on-primary-fixed": "#00201c",
+                        "tertiary-container": "#6063ee",
+                        "tertiary-fixed": "#e1e0ff",
+                        "on-error-container": "#93000a",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-low": "#f3f4f5",
+                        "background": "#f8f9fa",
+                        "on-secondary-fixed": "#121c2a",
+                        "secondary-fixed": "#d9e3f6",
+                        "on-primary-container": "#f4fffb",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-tertiary-container": "#fffbff",
+                        "inverse-primary": "#72d8c8",
+                        "surface-container": "#edeeef",
+                        "on-primary-fixed-variant": "#005047",
+                        "on-secondary-fixed-variant": "#3d4756",
+                        "on-surface": "#191c1d",
+                        "inverse-on-surface": "#f0f1f2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "4px",
+                        "section-gap": "48px",
+                        "container-margin-mobile": "16px",
+                        "container-margin-desktop": "40px",
+                        "gutter": "16px",
+                        "stack-md": "12px",
+                        "stack-lg": "24px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Sora"],
+                        "headline-lg-mobile": ["Sora"],
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Sora"],
+                        "headline-md": ["Sora"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "14px", "fontWeight": "500" }],
+                        "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6, .font-sora {
+            font-family: 'Sora', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+<!-- Header Content Canvas (Transactional Page - Nav Shell Suppressed) -->
+<header class="sticky top-0 z-40 bg-surface/90 backdrop-blur-md border-b border-outline-variant/20 px-container-margin-desktop py-stack-md flex items-center justify-between">
+<div class="flex items-center gap-stack-md">
+<button class="p-2 rounded-full hover:bg-surface-container transition-colors text-on-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-on-surface">Review Selection</h1>
+</div>
+<div class="font-label-md text-label-md text-on-surface-variant">
+            6 Items Selected
+        </div>
+</header>
+<main class="flex-grow container mx-auto px-container-margin-desktop py-section-gap flex flex-col lg:flex-row gap-section-gap">
+<!-- Main Image Grid -->
+<div class="flex-grow">
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter">
+<!-- Image Card 1 -->
+<div class="relative group aspect-square rounded-lg overflow-hidden bg-white border border-surface-variant shadow-sm hover:shadow-md transition-shadow">
+<img alt="Product Image" class="w-full h-full object-cover" data-alt="A modern, high-quality photograph of a vibrant red running shoe resting on a sleek, minimalist white pedestal. The background is a soft, light gray gradient that perfectly matches the clean, airy aesthetic of the UI design system. High-key lighting emphasizes the shoe's textures and contours, casting a very subtle, diffused shadow to ground the object without adding visual weight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAghR-XM9-_ehbiBwoDwA6NNqYnS6NjZ53BTkBNOm_rOpEeE-gr4lPj_hfREkhSRrGgLPU3OSSmu-_tEisFiYvF6DSaEp74g8Pi8V7PsPo0udLmJJM1wu5zuTKg9kVYvt2Owq32J4BXw2hO9cpNy1fUqbsFae-JI6wEhlliin7Jv5wl86jP58avrL-zPZY6S1FBHvhchGZ7HZPU_i_nquGEpOxx_YABPlkach6cj8OubKJ55ockAqwizoyhpj6ItzbyA2FJcEkotifj"/>
+<button class="absolute top-2 right-2 w-8 h-8 bg-surface/80 backdrop-blur-md rounded-full flex items-center justify-center text-on-surface hover:bg-error hover:text-on-error transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Image Card 2 -->
+<div class="relative group aspect-square rounded-lg overflow-hidden bg-white border border-surface-variant shadow-sm hover:shadow-md transition-shadow">
+<img alt="Product Image" class="w-full h-full object-cover" data-alt="A crisp, professional product shot of a minimalist smartwatch with a black band and sleek metallic casing. The watch is presented straight-on against a pristine white background, perfectly aligning with the modern, high-key lighting style of the application. The image feels lightweight and airy, utilizing generous whitespace around the product to reduce visual clutter and maintain focus on the premium details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGnKi4Na80omi9dAOpx0qz2QVcKQUfutrsm1E-cDM0xJgzt-XFIN_fNB9rLb42XLwshX7aqEFdLJ_kJXmSlsQ1Do83atCRgTGRa2ZyUKMRI-JoN8gMjc2n_jZFshxW4j5WSYmJnNy-DZI_SVhEC1ZGBUG-BoOjkMzBKJ5g_wINnqi8nbIaj_AEHKEzUZX5ZH1-yx3YIiBqycnTscaZ0h78JMZlc3CdznKuPFWw_dK8tf9kNXH1YGY1byd8Y2zVRgXMVgDRF2s8LyG9"/>
+<button class="absolute top-2 right-2 w-8 h-8 bg-surface/80 backdrop-blur-md rounded-full flex items-center justify-center text-on-surface hover:bg-error hover:text-on-error transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Image Card 3 -->
+<div class="relative group aspect-square rounded-lg overflow-hidden bg-white border border-surface-variant shadow-sm hover:shadow-md transition-shadow">
+<img alt="Product Image" class="w-full h-full object-cover" data-alt="A clean, contemporary photograph of premium over-ear headphones in a sleek matte black finish. The headphones are floating slightly above a soft, neutral-toned surface, bathed in bright, even studio lighting. The overall mood is modern and trustworthy, utilizing a light color palette that seamlessly integrates with the surrounding minimalist UI, allowing the product's design to remain the central focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUkS8xYJVV03PJyEbYh9enc6ebIuxex8FyvA-xCQgw5DVCQH0hNAQftuF_e8EBWaJabn-mBB9FCkEdr16WSjxH4GUEmZYepA_sPwHEmP3twcJCpnPMVL5qffg72w3LRsYaX0t1rIoht8NsKWuvd5FmYBQgLisk-VayKTNQtDC-9O_FxomoFZewnWOlceQg_1yxyk0kqK2hNOL6LMav18xT1kjLoUJzkVvzRL6l3LddJs-SR2Dzjdrg9JOrH3paoHgYFOCijO90Qt6u"/>
+<button class="absolute top-2 right-2 w-8 h-8 bg-surface/80 backdrop-blur-md rounded-full flex items-center justify-center text-on-surface hover:bg-error hover:text-on-error transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Image Card 4 -->
+<div class="relative group aspect-square rounded-lg overflow-hidden bg-white border border-surface-variant shadow-sm hover:shadow-md transition-shadow">
+<img alt="Product Image" class="w-full h-full object-cover" data-alt="An elegant, minimalist shot of a designer ceramic coffee mug resting on a smooth, light wood texture. The composition is simple and airy, bathed in soft, diffused natural daylight that creates gentle, inviting highlights. The light, neutral tones of the image complement the modern, clean aesthetic of the UI, emphasizing a friendly, approachable, yet premium feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_SXOKGbAaakGHPvARCffoU0e72glqDuXfi8DR2tu9IkVTa7IfRm80VoE7d-7QqaNPYv2idTF0L5vyWSD_XtG7EIl2Ad9jToPYdufrwGXQbk_GWWXKL_tQWxjniD1pDXmtj7HSgyidA643e1jA4Q06DUFm283-vpO9ePEGNGzqSgIpe4swNZj9t9HEx4MFUr2Dsa38kqk6hxsdLi608KR9L_dmSVsdqm6E164f6jsaaMSQm5hXUH_sY78cHj84u9N_M4W8zH79cj-c"/>
+<button class="absolute top-2 right-2 w-8 h-8 bg-surface/80 backdrop-blur-md rounded-full flex items-center justify-center text-on-surface hover:bg-error hover:text-on-error transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Image Card 5 -->
+<div class="relative group aspect-square rounded-lg overflow-hidden bg-white border border-surface-variant shadow-sm hover:shadow-md transition-shadow">
+<img alt="Product Image" class="w-full h-full object-cover" data-alt="A striking, modern image of a vintage-style instant camera in a bright, playful yellow hue. The camera is centered against a pure white background, showcasing crisp details and smooth textures under bright, high-key studio lighting. The image maintains an airy, minimalist vibe, perfectly suited for a clean, user-friendly interface that relies on generous whitespace and high-quality product photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwQXfC6-0RGJj1j4srvpNYZjLDs3Ym7O8bjR2tQLdb4vZfq5n0PAElAgaEbGtSRTsAzSSrQLL8Y3AvcAm5niUg54wHwQtJeBJT6FEflXmdqpyzcdK232g4URtWSJhMoxxfO-DhcWsn90Ek6FrApbQXUY1sNflIK4Jf6r_6jVziToOVSqgrtiAWThmMSVqMGmyxghy-Jj7oYYd0MAKdGxzpuk2SmnqW8GAoVCjOeEio4zaRjEgNSWuLe34Q5sO9wBRuaWK2AHviaRYn"/>
+<button class="absolute top-2 right-2 w-8 h-8 bg-surface/80 backdrop-blur-md rounded-full flex items-center justify-center text-on-surface hover:bg-error hover:text-on-error transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Image Card 6 -->
+<div class="relative group aspect-square rounded-lg overflow-hidden bg-white border border-surface-variant shadow-sm hover:shadow-md transition-shadow">
+<img alt="Product Image" class="w-full h-full object-cover" data-alt="A clean, minimalist product photograph featuring a sleek, modern water bottle with a matte charcoal finish. The bottle stands vertically against a soft, very light gray background, lit by even, bright studio lighting that eliminates harsh shadows. The overall composition is airy and sophisticated, aligning perfectly with the modern, high-key design system and ensuring the product remains the undisputed focal point." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6iZK6WCuFgkyK4kqWV8KXWntCLO0Az0jDFbicyC7KYeZCNRs0D59Y-SlyVq7axqCEnognYfMzhh5bYkTyenuJJjoASS3YHFo-L36Sx4ogATeeYYYJ5uSSsh-9tTrht3ucL3tKsqAdGoPS_Qg86LrZKBy8PLs12rgplEnaID6unPd34y3znWzRD4obUEPs8ZUQvDew7EMjY36Lub4c_d2em65vCHmg3OC_QGsUowoRbissV_ZWJbqM4Gl026gtu0DJZknuZhZMkInM"/>
+<button class="absolute top-2 right-2 w-8 h-8 bg-surface/80 backdrop-blur-md rounded-full flex items-center justify-center text-on-surface hover:bg-error hover:text-on-error transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Sticky Action Panel (Desktop Side, Mobile Bottom) -->
+<div class="lg:w-[360px] flex-shrink-0">
+<div class="sticky top-[100px] bg-white rounded-xl shadow-[0px_10px_30px_rgba(0,0,0,0.05)] border border-surface-variant p-stack-lg flex flex-col gap-stack-lg">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-stack-sm">Ready to Inquire?</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Send this selection of 6 items directly to our team on WhatsApp for pricing and details.</p>
+</div>
+<button class="w-full min-h-[56px] bg-[#25D366] hover:bg-[#128C7E] text-white rounded-full flex items-center justify-center gap-stack-sm px-6 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-2xl">chat</span>
+<span class="font-label-md text-label-md">Send Selection on WhatsApp</span>
+</button>
+<div class="text-center">
+<button class="font-label-sm text-label-sm text-secondary hover:text-primary transition-colors underline-offset-4 hover:underline">
+                        Add more items
+                    </button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

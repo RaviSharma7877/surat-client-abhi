@@ -1,0 +1,12 @@
+[
+  {
+    "id": "9dd773ed-ff8a-49d2-8e5e-14364626d0bd",
+    "image": "https://your-shopflow-bucket.s3.eu-north-1.amazonaws.com/products/1778822730699-kzvpie5aw5g.webp",
+    "createdAt": "2026-05-15T05:25:31.830Z"
+  },
+  {
+    "id": "b8a4ed3e-a44c-42e3-b633-39605369518e",
+    "image": "https://your-shopflow-bucket.s3.eu-north-1.amazonaws.com/products/1778822731042-k18v5xsbl7.webp",
+    "createdAt": "2026-05-15T05:25:31.902Z"
+  }
+]

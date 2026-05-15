@@ -1,13 +1,12 @@
 import { getProducts } from "@/lib/data";
 import { CatalogProvider } from "@/lib/catalog-context";
-import { CatalogClient } from "./catalog-client";
+import { ReviewClient } from "./review-client";
 
-export default async function CatalogPage() {
+export default async function ReviewPage() {
   const products = await getProducts();
-
   return (
     <CatalogProvider>
-      <CatalogClient initialProducts={products} />
+      <ReviewClient allProducts={products} />
     </CatalogProvider>
   );
 }
